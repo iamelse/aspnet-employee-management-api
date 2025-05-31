@@ -6,6 +6,18 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Tambah layanan CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
 #region Konfigurasi Sumber Konfigurasi (appsettings, env, secrets)
 
 // Tambahkan konfigurasi dari appsettings
@@ -116,5 +128,8 @@ using (var scope = app.Services.CreateScope())
         throw;
     }
 }
+
+// Gunakan CORS policy sebelum endpoints dipanggil
+app.UseCors("AllowAllOrigins");
 
 app.Run();
