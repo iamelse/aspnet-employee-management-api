@@ -1,3 +1,4 @@
+using EmployeeManagementApi;
 using EmployeeManagementApi.Data;
 using EmployeeManagementApi.Services;
 using EmployeeManagementApi.Settings;
@@ -92,5 +93,28 @@ app.UseAuthorization();
 app.MapControllers();
 
 #endregion
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    try
+    {
+        var context = services.GetRequiredService<AppDbContext>();
+        var encryptionService = services.GetRequiredService<EncryptionService>(); // ✅ Tambahkan ini
+
+        // Terapkan migrasi otomatis
+        context.Database.Migrate();
+
+        // Jalankan seeder data
+        await SeedData.Initialize(context, encryptionService); // ✅ Perbaiki pemanggilan
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "Error during migration or seeding database");
+        throw;
+    }
+}
 
 app.Run();

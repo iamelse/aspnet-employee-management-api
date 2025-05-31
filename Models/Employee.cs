@@ -6,23 +6,30 @@ namespace EmployeeManagementApi.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        public required string FirstName { get; set; }
+        public string FirstName { get; set; } = null!;
+        public string MiddleName { get; set; } = null!;
+        public string LastName { get; set; } = null!;
+        public string Gender { get; set; } = null!;
+        public string Address { get; set; } = null!;
+        public byte[] EncryptedDateOfBirth { get; set; } = null!;
+        public List<JobPosition> JobPositions { get; set; } = new List<JobPosition>();
 
-        public required string MiddleName { get; set; }
+        // Constructor dengan 7 parameter
+        public Employee(string firstName, string middleName, string lastName, string gender, string address, byte[] encryptedDateOfBirth, List<JobPosition> jobPositions)
+        {
+            FirstName = firstName;
+            MiddleName = middleName;
+            LastName = lastName;
+            Gender = gender;
+            Address = address;
+            EncryptedDateOfBirth = encryptedDateOfBirth;
+            JobPositions = jobPositions;
+        }
 
-        [Required]
-        public required string LastName { get; set; }
-
-        [Required]
-        public required string Gender { get; set; }
-
-        [Required]
-        public required string Address { get; set; }
-
-        [Required]
-        public required byte[] EncryptedDateOfBirth { get; set; }
-
-        public required List<JobPosition> JobPositions { get; set; }
+        // Constructor parameterless supaya EF Core tetap bisa pakai
+        public Employee()
+        {
+            
+        }
     }
 }

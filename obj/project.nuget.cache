@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "htW+Nji5mfk=",
+  "dgSpecHash": "jBF98M4WNOU=",
   "success": true,
   "projectFilePath": "C:\\Users\\lanas\\Documents\\Codelabs\\ASP.NET\\EmployeeManagementApi\\EmployeeManagementApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lanas\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\lanas\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\lanas\\.nuget\\packages\\bogus\\35.6.3\\bogus.35.6.3.nupkg.sha512",
     "C:\\Users\\lanas\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\lanas\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.16\\microsoft.aspnetcore.openapi.8.0.16.nupkg.sha512",
     "C:\\Users\\lanas\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
