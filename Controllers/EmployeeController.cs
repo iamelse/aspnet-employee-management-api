@@ -69,7 +69,7 @@ namespace EmployeeManagementApi.Controllers
             try
             {
                 if (employeeDTO.JobPositions != null &&
-                    employeeDTO.JobPositions.Count(j => j.Status == "active") > 1)
+                    employeeDTO.JobPositions.Count(j => j.Status.Equals("Active", StringComparison.OrdinalIgnoreCase)) > 1)
                 {
                     return BadRequest("Only one active job position is allowed per employee.");
                 }
