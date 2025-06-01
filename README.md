@@ -146,3 +146,7 @@ Untuk unit test ada di branch test
 ```
 dotnet test
 ```
+
+### FrontEnd
+
+https://github.com/iamelse/employee-management
