@@ -6,23 +6,23 @@ namespace EmployeeManagementApi.DTOs
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "First name is required")]
         public required string FirstName { get; set; }
 
-        public required string MiddleName { get; set; }
+        public string? MiddleName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Last name is required")]
         public required string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Date of birth is required")]
         public DateTime DateOfBirth { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Gender is required")]
         public required string Gender { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Address is required")]
         public required string Address { get; set; }
 
-        public required List<JobPositionDTO> JobPositions { get; set; }
+        public List<JobPositionDTO>? JobPositions { get; set; }
     }
 }

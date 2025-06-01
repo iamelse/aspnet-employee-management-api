@@ -66,10 +66,13 @@ namespace EmployeeManagementApi.Controllers
         /// Menambahkan karyawan baru ke database.
         /// </summary>
         [HttpPost]
-        public async Task<ActionResult<EmployeeDTO>> CreateEmployee(EmployeeDTO employeeDTO)
+        public async Task<ActionResult<EmployeeDTO>> CreateEmployee([FromBody] EmployeeDTO employeeDTO)
         {
             try
             {
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
+
                 if (!IsValidJobPositions(employeeDTO.JobPositions, out string? validationError))
                     return BadRequest(validationError);
 
@@ -101,6 +104,9 @@ namespace EmployeeManagementApi.Controllers
                     .FirstOrDefaultAsync(e => e.Id == id);
 
                 if (employee == null) return NotFound();
+
+                if (!ModelState.IsValid)
+                    return BadRequest(ModelState);
 
                 if (!IsValidJobPositions(employeeDTO.JobPositions, out string? validationError))
                     return BadRequest(validationError);
